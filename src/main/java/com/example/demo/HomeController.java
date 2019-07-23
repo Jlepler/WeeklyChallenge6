@@ -91,6 +91,7 @@ public class HomeController {
     public String carByCategory(@PathVariable("id") long id, Model model)
     {
         model.addAttribute("cars", categoryRepository.findById(id).get());
+        model.addAttribute("car", carRepository.findAllByCategory(carByCategory(id, model)));
         return "carsbycategory";
     }
 
