@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/stylesheet.css}" type="text/css">
+
 </head>
+<div>
+    <div th:insert="base :: navpan"></div>
+</div>
 <body>
+
+<h2>Add a car</h2>
+<div class="card-add-container">
+    <form class="add-car-form" th:action="@{/process/car}" th:object="${car}" method="post">
+        <div class="form-group" style="border-radius: 2px">
+                <input th:field="*{id}" type="hidden">
+            <label for="manufacturer">Manufacturer</label><br />
+                <input id="manufacturer" th:field="*{manufacturer}" type="text" placeholder="Toyota"><br />
+            <label for="model">Model</label><br />
+                <input id="model" th:field="*{model}" type="text" placeholder="Corolla"><br />
+            <label for="year">Year</label><br />
+                <input id="year" th:field="*{year}" type="number" placeholder="1990"><br />
+            <label for="msrp">MSRP</label><br />
+                <input id="msrp" th:field="*{msrp}" type="number" placeholder="XXXXX"><br />
+            <label for="category">Category</label><br  />
+                <select id="category" th:field="*{category}" multiple>
+                    <option th:each="eachCategory:${categories}"
+                            th:text="${eachCategory.categoryName}"
+                            th:value="${eachCategory.id}">
+                    </option>
+                </select>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </form>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+
+    <div>
+        <div th:insert="base :: javascript"></div>
+    </div>
+
 
 </body>
 </html>

@@ -6,19 +6,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/stylesheet.css}" type="text/css">
+
 </head>
 <div>
     <div th:insert="base :: navpan"></div>
 </div>
 <body>
 
-<div class="scroll-container">
-    <h4>Choose the type of vehicle you are interested in to see our current listings</h4>
-    <div class="btn-group" role="group" aria-label="" th:each="category : ${categories}">
-        <button type="button" class="btn btn-secondary" th:href="@{/car/bycategory/{id}(id=${category.cars})}">[[${category.categoryName}]]</button>
-</div>
-
-<div class="car-card-container-fluid">
+<div class="category-card-container-fluid">
     <div class="row">
         <div class="col-4 card" style="padding: 0px" th:each="car : ${cars}">
             <div class="card-body">
@@ -31,15 +26,14 @@
                 </p>
             </div>
         </div>
-
-
     </div>
 </div>
-    <div>
-        <div th:insert="base :: javascript"></div>
-    </div>
 
 
+
+<div>
+    <div th:insert="base :: javascript"></div>
 </div>
+
 </body>
 </html>

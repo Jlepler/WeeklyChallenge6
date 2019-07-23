@@ -68,13 +68,15 @@ public class HomeController {
     public String showCarDetails(@PathVariable("id") long id, Model model)
     {
         model.addAttribute("car", carRepository.findById(id).get());
-        return "showcardetial";
+        return "showcardetail";
     }
+
 
     @RequestMapping("/car/update/{id}")
     public String updateCarDetails(@PathVariable("id") long id, Model model)
     {
         model.addAttribute("car", carRepository.findById(id).get());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "carform";
     }
 
@@ -85,16 +87,52 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @RequestMapping("/car/bycategory/{id}")
+    public String carByCategory(@PathVariable("id") long id, Model model)
+    {
+        model.addAttribute("cars", categoryRepository.findById(id).get());
+        return "carsbycategory";
+    }
+
+
+
+
+
+//    This method will return all cars under a category
+//    @RequestMapping("/bycategory/{id}")
+//    public String showCarListByCategory(@PathVariable("id") long id, Model model){
+//        model.addAttribute("car", carRepository.findAllByCategory())
+//    }
+
     @PostConstruct
     public void filltables(){
 
+//      Cars under SUV category
         Category category = new Category();
-
+        category.setCategoryName("SUV");
+        categoryRepository.save(category);
 
         Car car = new Car("Subaru","Outback",2015, 30000);
         car.setCategory(category);
+        carRepository.save(car);
+
+        car = new Car("Honda", "CRV", 2011, 22000);
+        car.setCategory(category);
+        carRepository.save(car);
+
+//      Cars under Sedan category
+        category = new Category();
+        category.setCategoryName("Sedan");
+        categoryRepository.save(category);
+
+        car = new Car("Honda", "Civic", 2020, 28000);
+        car.setCategory(category);
+        carRepository.save(car);
+
+        car = new Car("Hyundai", "Tiburon", 2008, 17000);
+        car.setCategory(category);
+        carRepository.save(car);
 
     }
 }
 
-}

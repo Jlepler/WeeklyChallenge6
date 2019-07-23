@@ -1,8 +1,51 @@
 body {
     background: url("https://res.cloudinary.com/jleplerwt/image/upload/e_hue:59/v1563895126/Cars%20R%20Us/scenting-your-car-dealership_y63pkf.jpg") no-repeat;
-    background-size: cover;
+    background-size: 2000px 1000px;
 }
 
 .nav-item{
-    
+
+}
+
+.card-add-container{
+    margin-left: 10%;
+    margin-right: 10%;
+    position: center;
+}
+
+.form-group{
+    position: center;
+}
+
+label{
+    font-size: 24px;
+}
+
+.card-add-container {
+    background-color: rgba(88, 96, 126, 1) ;
+    overflow: hidden;
+}
+
+.card-add-container:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 0 0 1000px rgba(0,0,0,.5);
+    filter: blur(40px);
+}
+
+.car-card-container-fluid{
+    position: center;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.scroll-container{
+    position: center;
+    margin-left: 10%;
+    margin-right: 10%;
 }

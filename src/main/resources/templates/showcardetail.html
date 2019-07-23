@@ -13,23 +13,21 @@
 </div>
 <body>
 
-<h2>Add a car</h2>
-<div class="card-add-container">
-    <form class="add-category-form" th:action="@{/process/car}" th:object="${category}" method="post">
-        <div class="form-group" style="border-radius: 2px">
-            <input th:field="*{id}" type="hidden">
-            <label for="type">Manufacturer</label><br />
-            <input id="type" th:field="*{categoryName}" type="text" placeholder="Truck"><br />
-            <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="jumbotron">
+    <h1 class="display-4">[[${car.manufacturer}]]</h1>
+    <p class="lead">[[${car.model}]]</p>
+    <hr class="my-4">
+    <p>[[${car.msrp}]]</p>
+    <a class="btn btn-primary" th:href="@{/car/update/{id}(id=${car.id})}">Update</a>
+    <a class="btn btn-primary" th:href="@{/car/delete/{id}(id=${car.id})}">Delete</a>
 </div>
+
 
 
 
 <div>
     <div th:insert="base :: javascript"></div>
 </div>
-
 
 </body>
 </html>
