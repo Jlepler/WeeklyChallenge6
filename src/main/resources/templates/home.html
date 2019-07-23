@@ -15,7 +15,7 @@
 <div class="scroll-container">
     <h4>Choose the type of vehicle you are interested in to see our current listings</h4>
     <div class="btn-group" role="group" aria-label="" th:each="category : ${categories}">
-        <button type="button" class="btn btn-secondary" th:href="@{/car/bycategory/{id}(id=${category.cars})}">[[${category.categoryName}]]</button>
+        <button type="button" class="btn btn-secondary" th:href="@{/car/bycategory/{id}(id=${category.id})}">[[${category.categoryName}]]</button>
 </div>
 
 <div class="car-card-container-fluid">
