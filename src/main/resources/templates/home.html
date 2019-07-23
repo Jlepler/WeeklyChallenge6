@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+
+</head>
+<div>
+    <div th:insert="base :: navpan"></div>
+</div>
+<body>
+
+<div class="scroll-container">
+    <div class="btn-group" role="group" aria-label="" th:each="car : ${cars}">
+        <button type="button" class="btn btn-secondary">
+</div>
+
+
+
+
+    <div>
+        <div th:insert="base :: javascript"></div>
+    </div>
+
+</body>
+</html>
